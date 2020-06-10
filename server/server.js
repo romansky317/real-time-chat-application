@@ -1,8 +1,11 @@
 const express = require("express");
 const socketio = require("socket.io");
 const http = require("http");
-const cors = require('cors');
-const PORT = process.env.port || 4000;
+const cors = require("cors");
+const PORT = process.env.PORT || 5000;
+
+const cool = require('cool-ascii-faces');
+
 
 const router = require("./router");
 
@@ -42,7 +45,6 @@ io.on("connection", (socket) => {
   socket.on("sendMessage", (message, callback) => {
     const user = getUser(socket.id);
 
-
     io.to(user.room).emit("message", { user: user.name, text: message });
 
     callback();
@@ -62,6 +64,7 @@ io.on("connection", (socket) => {
 
 app.use(router);
 app.use(cors());
+// process.argv[2] || "0.0.0.0"
 server.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`Server is up on ${PORT}`);
 });
