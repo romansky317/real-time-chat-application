@@ -1,0 +1,20 @@
+{
+  "name": "chat-app",
+  "version": "1.0.0",
+  "description": "A real time chat app made by Roman Malashkin.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+    },
+  "keywords": [
+    "Chat",
+    "App"
+  ],
+  "author": "Roman Malashkin",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  }
+}
